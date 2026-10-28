@@ -1,0 +1,9 @@
+FROM python:3.12-slim-bookworm
+WORKDIR /app
+RUN pip install --no-cache-dir huggingface-hub==2.3.0 google-cloud-storage==3.4.1 google-crc32c==1.7.1
+COPY workers/huggingface/cache_seed.py workers/huggingface/catalogue.py ./
+COPY src/lib/models/huggingface-models.json ./models.json
+RUN useradd --uid 10001 --create-home seed
+USER 10001
+ENV HF_HUB_DISABLE_IMPLICIT_TOKEN=1 HF_HUB_DISABLE_XET=1 HF_XET_CHUNK_CACHE_SIZE_BYTES=0
+ENTRYPOINT ["python", "cache_seed.py"]

@@ -1,0 +1,66 @@
+{
+  "name": "astraflow-image-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Professional AI image generation studio with secure Google authentication, visual workflows, GCP-hosted model routing, and BYOK provider support.",
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test:worker": "sucrase-node tests/worker-contract.test.ts",
+    "test:ollama": "sucrase-node tests/ollama-image-generation.test.ts",
+    "test:ollama:infrastructure": "sucrase-node tests/ollama-infrastructure.test.ts",
+    "test:huggingface": "sucrase-node tests/huggingface-image-generation.test.ts",
+    "test:huggingface:infrastructure": "sucrase-node tests/huggingface-infrastructure.test.ts",
+    "test:huggingface:runtime": "python -B -m unittest discover -s tests -p test_huggingface_runtime.py",
+    "test:model-cache": "python -B -m unittest discover -s tests -p test_ollama_model_cache.py",
+    "test:workflow": "sucrase-node tests/workflow-import-export.test.ts",
+    "test:studio": "sucrase-node tests/studio-flows.test.ts",
+    "test:canvas": "sucrase-node tests/workflow-canvas-state.test.ts",
+    "test:auth": "sucrase-node tests/google-auth-config.test.ts",
+    "test:catalogue": "sucrase-node tests/model-catalogue.test.ts",
+    "verify:model:live": "sucrase-node scripts/verify-model-live.ts",
+    "catalogue:sync": "node scripts/seed-dev-catalog.mjs --controlled-sync",
+    "seed:dev": "node scripts/seed-dev-catalog.mjs"
+  },
+  "dependencies": {
+    "@google-cloud/kms": "^6.0.0",
+    "@google-cloud/secret-manager": "^7.0.0",
+    "@google-cloud/storage": "^8.0.1",
+    "@google-cloud/tasks": "^7.0.0",
+    "@next/env": "^16.3.3",
+    "@xyflow/react": "^12.0.0",
+    "clsx": "^2.1.1",
+    "google-auth-library": "^11.0.2",
+    "lucide-react": "^0.468.0",
+    "mongodb": "^7.6.0",
+    "nanoid": "^5.0.9",
+    "next": "^16.3.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.4",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "dotenv": "^17.2.3",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^16.3.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.0"
+  },
+  "overrides": {
+    "deepmerge-ts": "^8.0.2",
+    "uuid": "^11.1.1"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

@@ -1,0 +1,204 @@
+openapi: 3.1.0
+info:
+  title: AstraFlow Image Studio API
+  version: 0.1.0
+  description: Browser-facing API for authenticated image generation workflows.
+servers:
+  - url: /
+paths:
+  /api/auth/session:
+    post:
+      summary: Exchange a Google ID token for an HttpOnly application session.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [credential]
+              properties:
+                credential:
+                  type: string
+      responses:
+        "200":
+          description: Session created.
+        "401":
+          description: Google token verification failed.
+    delete:
+      summary: Log out and clear the application session.
+      responses:
+        "200":
+          description: Session cleared.
+  /api/me:
+    get:
+      summary: Return the authenticated application session user.
+      responses:
+        "200":
+          description: Current user.
+        "401":
+          description: Authentication required.
+  /api/models:
+    get:
+      summary: List available hosted and external model routes.
+      responses:
+        "200":
+          description: Model catalogue.
+  /api/workflows/validate:
+    post:
+      summary: Validate an allowlisted workflow graph without saving it.
+      responses:
+        "200":
+          description: Workflow is valid.
+        "422":
+          description: Workflow failed validation.
+  /api/workflows:
+    get:
+      summary: List the authenticated user's active workflows.
+      responses:
+        "200":
+          description: Workflow summaries.
+        "401":
+          description: Authentication required.
+    post:
+      summary: Create a workflow and immutable first revision.
+      responses:
+        "201":
+          description: Workflow created.
+        "401":
+          description: Authentication required.
+        "422":
+          description: Workflow failed validation.
+  /api/workflows/{workflowId}:
+    get:
+      summary: Load an authenticated user's workflow and current revision.
+      parameters:
+        - name: workflowId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Workflow detail.
+    put:
+      summary: Save a new immutable workflow revision.
+      parameters:
+        - name: workflowId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Workflow revision saved.
+    delete:
+      summary: Archive a workflow owned by the authenticated user.
+      parameters:
+        - name: workflowId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Workflow archived.
+  /api/generations:
+    get:
+      summary: List the authenticated user's generation jobs.
+      responses:
+        "200":
+          description: Generation history.
+        "401":
+          description: Authentication required.
+    post:
+      summary: Create an idempotent generation job from a validated workflow.
+      responses:
+        "202":
+          description: Job queued.
+        "401":
+          description: Authentication required.
+        "422":
+          description: Workflow failed validation.
+  /api/assets:
+    get:
+      summary: List the authenticated user's private and permitted assets.
+      responses:
+        "200":
+          description: Asset summaries.
+        "401":
+          description: Authentication required.
+  /api/assets/{assetId}/download-url:
+    get:
+      summary: Create a short-lived signed download URL for an owned asset.
+      parameters:
+        - name: assetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Signed download URL.
+  /api/uploads/sign:
+    post:
+      summary: Create a short-lived signed private Cloud Storage upload URL.
+      responses:
+        "201":
+          description: Signed upload URL and pending asset record.
+        "401":
+          description: Authentication required.
+  /api/uploads/{assetId}/complete:
+    post:
+      summary: Verify a signed upload exists in private Cloud Storage and mark it complete.
+      parameters:
+        - name: assetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Upload verified.
+        "422":
+          description: Upload object missing or invalid.
+  /api/providers:
+    get:
+      summary: List configured provider credentials without secret values.
+      responses:
+        "200":
+          description: Provider summaries.
+  /api/providers/{provider}/credentials:
+    post:
+      summary: Store or test a user-owned provider credential.
+      parameters:
+        - name: provider
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Credential accepted and masked.
+    delete:
+      summary: Delete a provider credential.
+      parameters:
+        - name: provider
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Credential deleted.
+  /health:
+    get:
+      summary: Liveness check.
+      responses:
+        "200":
+          description: Service is alive.
+  /ready:
+    get:
+      summary: Readiness check.
+      responses:
+        "200":
+          description: Dependency status.

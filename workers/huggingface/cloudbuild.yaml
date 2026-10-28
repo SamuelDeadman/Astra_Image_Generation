@@ -1,0 +1,12 @@
+# Run from repository root. Supply a reviewed immutable Google HF PyTorch DLC base.
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: [build, --build-arg, 'HF_DLC_IMAGE=${_HF_DLC_IMAGE}', -f, workers/huggingface/Dockerfile, -t, '${_INFERENCE_IMAGE}', .]
+  - name: gcr.io/cloud-builders/docker
+    args: [build, -f, workers/huggingface/Dockerfile.cache, -t, '${_CACHE_IMAGE}', .]
+images:
+  - '${_INFERENCE_IMAGE}'
+  - '${_CACHE_IMAGE}'
+timeout: 3600s
+options:
+  machineType: E2_HIGHCPU_8

@@ -1,0 +1,25 @@
+{
+  "reference": "x/flux2-klein:4b-fp8",
+  "quantization": "fp8",
+  "manifest_digest": "sha256:d968d763271aa912ac5499320d349bf4cb75267d7fbf499203bb8e8f19dde6ef",
+  "recommended_size": {
+    "width": 1024,
+    "height": 1024
+  },
+  "auto_pull_enabled": false,
+  "image_generation_enabled": false,
+  "compatibility": {
+    "target": "linux-amd64/nvidia-l4",
+    "status": "blocked",
+    "reason": "The previously inspected Ollama 0.40.6 container rejects image-generation models with HTTP 400. FLUX.2 Klein still documents macOS-only image generation; a private cache does not remove the runtime blocker.",
+    "container_version_checked": "0.40.6",
+    "container_index_digest_checked": "sha256:265409e1d931028a8f7d5a32bcbafddd7bffbc6cc629d77efe9560adf692a5e7",
+    "checked_on": "2026-10-27",
+    "container_checked_on": "2026-10-20",
+    "sources": [
+      "https://ollama.com/x/flux2-klein",
+      "https://ollama.com/blog/image-generation",
+      "https://github.com/ollama/ollama/blob/v0.40.6/server/routes.go"
+    ]
+  }
+}

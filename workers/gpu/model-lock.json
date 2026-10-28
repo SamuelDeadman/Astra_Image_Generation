@@ -1,0 +1,9 @@
+{
+  "model": "x/flux2-klein:4b-fp8",
+  "repository": "x/flux2-klein",
+  "tag": "4b-fp8",
+  "manifest_digest": "sha256:d968d763271aa912ac5499320d349bf4cb75267d7fbf499203bb8e8f19dde6ef",
+  "checked_on": "2026-10-27",
+  "registry_layer_count": 1540,
+  "registry_layer_bytes": 9454678488
+}

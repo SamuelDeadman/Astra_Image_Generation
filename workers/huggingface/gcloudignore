@@ -1,0 +1,10 @@
+# Minimal source archive for cloudbuild.yaml, selected explicitly by the build command.
+**
+!workers/
+!workers/huggingface/
+!workers/huggingface/**
+!src/
+!src/lib/
+!src/lib/models/
+!src/lib/models/huggingface-models.json
+!.dockerignore
