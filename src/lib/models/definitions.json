@@ -1,0 +1,433 @@
+[
+  {
+    "verifiedOn": "2026-10-13",
+    "catalogueRevision": "2026-10-13-v1",
+    "adapterRevision": "google-image-v2",
+    "family": "Gemini image",
+    "capabilities": [
+      "text-to-image",
+      "image-to-image"
+    ],
+    "modalities": {
+      "input": [
+        "text",
+        "image"
+      ],
+      "output": [
+        "image"
+      ]
+    },
+    "defaults": {
+      "width": 1024,
+      "height": 1024,
+      "batch": 1,
+      "outputFormat": "png"
+    },
+    "unsupportedParameters": [
+      "steps",
+      "cfg",
+      "sampler",
+      "scheduler",
+      "seed",
+      "deterministicSeed",
+      "strength"
+    ],
+    "negativePromptSupported": false,
+    "limitsNote": "AstraFlow supports square output and one image per node. These are application limits within provider capabilities; diffusion controls are not exposed by this provider.",
+    "id": "google-ai-studio-image",
+    "name": "Google Gemini Nano Banana 2.1",
+    "providerId": "google-ai-studio",
+    "provider": "Google AI Studio",
+    "providerModelId": "gemini-nano-banana-2.1",
+    "route": "google-ai-studio-image",
+    "credentialMode": "user-byok",
+    "resolutions": [
+      {
+        "width": 1024,
+        "height": 1024,
+        "aspectRatio": "1:1",
+        "imageSize": "1K"
+      },
+      {
+        "width": 2048,
+        "height": 2048,
+        "aspectRatio": "1:1",
+        "imageSize": "2K"
+      },
+      {
+        "width": 4096,
+        "height": 4096,
+        "aspectRatio": "1:1",
+        "imageSize": "4K"
+      }
+    ],
+    "outputFormats": [
+      "png",
+      "jpeg"
+    ],
+    "maxInputImages": 1,
+    "maxInputBytes": 7340032,
+    "baseCreditCost": 6,
+    "costLabel": "AstraFlow estimate: 6 base credits; provider usage billed to your API-key project. See current provider pricing.",
+    "pricingUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+    "licence": "Gemini API Additional Terms of Service and Google Generative AI Prohibited Use Policy; proprietary hosted model.",
+    "licenceStatus": "provider-terms",
+    "licenceUrl": "https://ai.google.dev/gemini-api/terms",
+    "sources": [
+      "https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1",
+      "https://ai.google.dev/gemini-api/docs/image-generation"
+    ]
+  },
+  {
+    "verifiedOn": "2026-10-13",
+    "catalogueRevision": "2026-10-13-v1",
+    "adapterRevision": "google-image-v2",
+    "family": "Gemini image",
+    "capabilities": [
+      "text-to-image",
+      "image-to-image"
+    ],
+    "modalities": {
+      "input": [
+        "text",
+        "image"
+      ],
+      "output": [
+        "image"
+      ]
+    },
+    "defaults": {
+      "width": 1024,
+      "height": 1024,
+      "batch": 1,
+      "outputFormat": "png"
+    },
+    "unsupportedParameters": [
+      "steps",
+      "cfg",
+      "sampler",
+      "scheduler",
+      "seed",
+      "deterministicSeed",
+      "strength"
+    ],
+    "negativePromptSupported": false,
+    "limitsNote": "AstraFlow supports square output and one image per node. These are application limits within provider capabilities; diffusion controls are not exposed by this provider.",
+    "id": "vertex-gemini-image",
+    "name": "Google Gemini 3.1 Flash-Lite Image",
+    "providerId": "astraflow-vertex-image",
+    "provider": "AstraFlow-managed Google Vertex AI",
+    "providerModelId": "gemini-3.1-flash-lite-image",
+    "route": "vertex-image",
+    "credentialMode": "platform-identity",
+    "resolutions": [
+      {
+        "width": 1024,
+        "height": 1024,
+        "aspectRatio": "1:1",
+        "imageSize": "1K"
+      }
+    ],
+    "outputFormats": [
+      "png"
+    ],
+    "maxInputImages": 1,
+    "maxInputBytes": 7340032,
+    "baseCreditCost": 6,
+    "costLabel": "AstraFlow estimate: 6 base credits; cloud inference is billed to the application project.",
+    "pricingUrl": "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+    "licence": "Google Cloud Service Specific Terms for generative AI; proprietary hosted model.",
+    "licenceStatus": "provider-terms",
+    "licenceUrl": "https://cloud.google.com/terms/service-terms",
+    "sources": [
+      "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image",
+      "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/multimodal/image-generation"
+    ],
+    "retirementDate": "2027-06-28"
+  },
+  {
+    "id": "ollama-flux2-klein-4b-fp8",
+    "name": "FLUX.2 Klein 4B FP8 (Ollama)",
+    "providerId": "astraflow-ollama",
+    "provider": "AstraFlow private Ollama",
+    "providerModelId": "x/flux2-klein:4b-fp8",
+    "route": "gcp-hosted-gpu",
+    "family": "FLUX.2 Klein",
+    "credentialMode": "platform-identity",
+    "verifiedOn": "2026-10-27",
+    "catalogueRevision": "2026-10-27-flux-klein-v1",
+    "adapterRevision": "ollama-image-v2",
+    "capabilities": [
+      "text-to-image"
+    ],
+    "modalities": {
+      "input": [
+        "text"
+      ],
+      "output": [
+        "image"
+      ]
+    },
+    "defaults": {
+      "width": 1024,
+      "height": 1024,
+      "batch": 1,
+      "outputFormat": "png"
+    },
+    "resolutions": [
+      {
+        "width": 1024,
+        "height": 1024,
+        "aspectRatio": "1:1",
+        "imageSize": "1K"
+      }
+    ],
+    "unsupportedParameters": [
+      "steps",
+      "cfg",
+      "sampler",
+      "scheduler",
+      "seed",
+      "deterministicSeed",
+      "strength"
+    ],
+    "negativePromptSupported": false,
+    "outputFormats": [
+      "png"
+    ],
+    "maxInputImages": 0,
+    "maxInputBytes": 0,
+    "baseCreditCost": 6,
+    "costLabel": "AstraFlow estimate: 6 base credits; private L4 infrastructure is billed to the application project.",
+    "limitsNote": "Disabled until a compatible immutable Ollama runtime and model pass live verification. Current stock Linux Ollama rejects image generation. One 1024 square PNG per text-to-image node.",
+    "licence": "Apache-2.0 for FLUX.2 Klein 4B; 9B models are not enabled.",
+    "licenceStatus": "model-terms",
+    "licenceUrl": "https://ollama.com/x/flux2-klein",
+    "sources": [
+      "https://ollama.com/x/flux2-klein",
+      "https://github.com/ollama/ollama/blob/v0.24.0/api/types.go",
+      "https://github.com/ollama/ollama/blob/main/server/routes.go"
+    ]
+  },
+  {
+    "id": "development-fake-model",
+    "name": "Development placeholder (no real images)",
+    "providerId": "development-local",
+    "provider": "Local development",
+    "providerModelId": "development-fake-v1",
+    "route": "development-fake",
+    "family": "Placeholder lifecycle",
+    "credentialMode": "none",
+    "verifiedOn": "2026-10-13",
+    "catalogueRevision": "2026-10-13-v1",
+    "adapterRevision": "development-fake-v1",
+    "capabilities": [
+      "llm",
+      "vision",
+      "image-analysis",
+      "text-to-image",
+      "image-to-image",
+      "image-transform",
+      "upscale"
+    ],
+    "modalities": {
+      "input": [
+        "text",
+        "image"
+      ],
+      "output": [
+        "text",
+        "image"
+      ]
+    },
+    "defaults": {
+      "width": 768,
+      "height": 768,
+      "batch": 1,
+      "steps": 24,
+      "cfg": 7,
+      "sampler": "dpmpp-2m",
+      "scheduler": "karras",
+      "seed": 0,
+      "deterministicSeed": false,
+      "outputFormat": "png",
+      "strength": 0.45
+    },
+    "numericBounds": {
+      "width": {
+        "min": 256,
+        "max": 1536,
+        "step": 8
+      },
+      "height": {
+        "min": 256,
+        "max": 1536,
+        "step": 8
+      },
+      "batch": {
+        "min": 1,
+        "max": 4,
+        "step": 1
+      },
+      "steps": {
+        "min": 1,
+        "max": 80,
+        "step": 1
+      },
+      "cfg": {
+        "min": 0,
+        "max": 30,
+        "step": 0.1
+      },
+      "strength": {
+        "min": 0,
+        "max": 1,
+        "step": 0.01
+      }
+    },
+    "resolutions": [],
+    "unsupportedParameters": [],
+    "negativePromptSupported": true,
+    "outputFormats": [
+      "png",
+      "jpeg",
+      "webp"
+    ],
+    "maxInputImages": 1,
+    "maxInputBytes": 7340032,
+    "baseCreditCost": 0,
+    "costLabel": "Development lifecycle only; no inference or image bytes.",
+    "limitsNote": "Application test bounds only. Never usable in production.",
+    "licence": "Application development placeholder; no production image model.",
+    "licenceStatus": "development-only",
+    "licenceUrl": "",
+    "sources": [],
+    "developmentOnly": true
+  },
+  {
+    "id": "hf-z-image-turbo",
+    "name": "Z-Image Turbo · Hugging Face L4",
+    "providerId": "astraflow-huggingface",
+    "provider": "Hugging Face on GCP L4",
+    "providerModelId": "Tongyi-MAI/Z-Image-Turbo@f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "route": "huggingface-image",
+    "family": "Z-Image Turbo",
+    "credentialMode": "platform-identity",
+    "verifiedOn": "2026-10-27",
+    "catalogueRevision": "2026-10-27-hf-v1",
+    "adapterRevision": "huggingface-diffusers-v1",
+    "capabilities": [
+      "text-to-image"
+    ],
+    "modalities": {
+      "input": [
+        "text"
+      ],
+      "output": [
+        "image"
+      ]
+    },
+    "defaults": {
+      "width": 1024,
+      "height": 1024,
+      "batch": 1,
+      "outputFormat": "png"
+    },
+    "resolutions": [
+      {
+        "width": 1024,
+        "height": 1024,
+        "aspectRatio": "1:1",
+        "imageSize": "1K"
+      }
+    ],
+    "unsupportedParameters": [
+      "steps",
+      "cfg",
+      "sampler",
+      "scheduler",
+      "seed",
+      "deterministicSeed",
+      "strength"
+    ],
+    "negativePromptSupported": false,
+    "outputFormats": [
+      "png"
+    ],
+    "maxInputImages": 0,
+    "maxInputBytes": 0,
+    "baseCreditCost": 6,
+    "costLabel": "AstraFlow estimate: 6 base credits; GCP L4 usage billed to the platform.",
+    "limitsNote": "One 1024×1024 PNG from the pinned official Diffusers model with BF16 inference. CPU offload on one NVIDIA L4; model-specific steps and guidance are fixed by the server. Requires live deployment verification.",
+    "licence": "Apache 2.0",
+    "licenceStatus": "open-source",
+    "licenceUrl": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo/blob/f332072aa78be7aecdf3ee76d5c247082da564a6/README.md",
+    "sources": [
+      "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+      "https://huggingface.co/docs/google-cloud/en/index"
+    ]
+  },
+  {
+    "id": "hf-flux2-klein-4b",
+    "name": "FLUX.2 Klein 4B · Hugging Face L4",
+    "providerId": "astraflow-huggingface",
+    "provider": "Hugging Face on GCP L4",
+    "providerModelId": "black-forest-labs/FLUX.2-klein-4B@e7b7dc27f91deacad38e78976d1f2b499d76a294",
+    "route": "huggingface-image",
+    "family": "FLUX.2 Klein 4B",
+    "credentialMode": "platform-identity",
+    "verifiedOn": "2026-10-27",
+    "catalogueRevision": "2026-10-27-hf-v1",
+    "adapterRevision": "huggingface-diffusers-v1",
+    "capabilities": [
+      "text-to-image"
+    ],
+    "modalities": {
+      "input": [
+        "text"
+      ],
+      "output": [
+        "image"
+      ]
+    },
+    "defaults": {
+      "width": 1024,
+      "height": 1024,
+      "batch": 1,
+      "outputFormat": "png"
+    },
+    "resolutions": [
+      {
+        "width": 1024,
+        "height": 1024,
+        "aspectRatio": "1:1",
+        "imageSize": "1K"
+      }
+    ],
+    "unsupportedParameters": [
+      "steps",
+      "cfg",
+      "sampler",
+      "scheduler",
+      "seed",
+      "deterministicSeed",
+      "strength"
+    ],
+    "negativePromptSupported": false,
+    "outputFormats": [
+      "png"
+    ],
+    "maxInputImages": 0,
+    "maxInputBytes": 0,
+    "baseCreditCost": 6,
+    "costLabel": "AstraFlow estimate: 6 base credits; GCP L4 usage billed to the platform.",
+    "limitsNote": "One 1024×1024 PNG from the pinned official Diffusers model with BF16 inference. CPU offload on one NVIDIA L4; model-specific steps and guidance are fixed by the server. Requires live deployment verification.",
+    "licence": "Apache 2.0",
+    "licenceStatus": "open-source",
+    "licenceUrl": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/blob/e7b7dc27f91deacad38e78976d1f2b499d76a294/README.md",
+    "sources": [
+      "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+      "https://huggingface.co/docs/google-cloud/en/index"
+    ]
+  }
+]
